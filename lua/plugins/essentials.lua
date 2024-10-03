@@ -1,18 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "gopls",
-        "typescript-language-server",
-        "tailwindcss-language-server",
-        "clangd",
-        "pyright",
-        "html-lsp",
-        "emmet-language-server",
-        "prettierd",
-      },
-    },
+    lazy = true,
   },
   {
     "neovim/nvim-lspconfig",
