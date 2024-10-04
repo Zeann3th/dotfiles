@@ -1,12 +1,14 @@
--- This file needs to have same structure as nvconfig.lua
--- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
--- Please read that file to know all available options :(
-
 ---@type ChadrcConfig
 local M = {}
 
 M.base46 = {
-  theme = "oxocarbon",
+  theme = "nightfox",
+  -- best_ones = {
+  --    "nightfox",
+  --    "oxocarbon",
+  --    "tokyonight",
+  --    "decay"
+  -- }
 
   hl_override = {
     Comment = { italic = true },
@@ -22,6 +24,18 @@ M.ui = {
 
 M.nvdash = {
   load_on_startup = true,
+  header = {
+    "                                  ",
+    "██╗  ██╗██╗   ██╗███████╗████████╗",
+    "██║  ██║██║   ██║██╔════╝╚══██╔══╝",
+    "███████║██║   ██║███████╗   ██║   ",
+    "██╔══██║██║   ██║╚════██║   ██║   ",
+    "██║  ██║╚██████╔╝███████║   ██║   ",
+    "╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   ",
+    "                                  ",
+    "       Powered By  eovim        ",
+    "                                  ",
+  },
 }
 
 return M
