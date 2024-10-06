@@ -1,7 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = true,
   },
   {
     "neovim/nvim-lspconfig",
@@ -18,7 +17,7 @@ return {
       return require "configs.guard"
     end,
     config = function()
-      require("guard").setup {
+      vim.g.guard_config = {
         fmt_on_save = true,
         lsp_as_default_formatter = true,
       }
