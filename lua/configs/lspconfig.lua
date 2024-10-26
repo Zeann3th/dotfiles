@@ -7,12 +7,17 @@ local util = require "lspconfig/util"
 local servers = { "html", "gopls", "ts_ls", "emmet_language_server" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- lsps with default config
+local capabilities = nvlsp.capabilities
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
+    capabilities = capabilities,
   }
 end
 
