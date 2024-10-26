@@ -1,5 +1,20 @@
 return {
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    lazy = false,
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+      ensure_installed = {
+        "cpptools",
+        "delve",
+      },
+    },
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     config = function()

@@ -4,7 +4,6 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
--- EXAMPLE
 local servers = { "html", "gopls", "ts_ls", "emmet_language_server" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
