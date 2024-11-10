@@ -9,5 +9,5 @@ vim.fn.sign_define("DapBreakpoint", { text = "📌", texthl = "", linehl = "", n
 
 vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
-vim.o.foldlevelstart = 3
+vim.o.foldlevelstart = 99
 vim.o.foldenable = true

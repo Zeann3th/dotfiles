@@ -59,13 +59,6 @@ lspconfig.clangd.setup {
   filetypes = { "c", "cpp", "objc", "objcpp" },
 }
 
--- Python
-lspconfig.pyright.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  filetypes = { "py" },
-}
-
 -- Emmet
 lspconfig.emmet_language_server.setup {
   on_attach = nvlsp.on_attach,
@@ -94,4 +87,11 @@ lspconfig.typst_lsp.setup {
   settings = {
     exportPdf = "ontype",
   },
+}
+
+-- PHP
+lspconfig.inteliphense.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "php" },
 }
