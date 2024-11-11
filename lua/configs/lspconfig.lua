@@ -90,7 +90,7 @@ lspconfig.typst_lsp.setup {
 }
 
 -- PHP
-lspconfig.inteliphense.setup {
+lspconfig.intelephense.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   filetypes = { "php" },
