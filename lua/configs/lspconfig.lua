@@ -79,19 +79,16 @@ lspconfig.tailwindcss.setup {
   filetypes = { "templ", "javascript", "typescript", "javascriptreact", "typescriptreact" },
 }
 
--- typst
-lspconfig.typst_lsp.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  filetypes = { "typst" },
-  settings = {
-    exportPdf = "ontype",
-  },
-}
-
 -- PHP
 lspconfig.intelephense.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   filetypes = { "php" },
+  settings = {
+    intelephense = {
+      format = {
+        enable = true,
+      },
+    },
+  },
 }

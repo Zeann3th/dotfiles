@@ -10,8 +10,14 @@ ft("typescript,javascript,typescriptreact,javascriptreact"):fmt("lsp"):append "p
 
 ft("json"):fmt "lsp"
 
-ft("typst"):fmt "lsp"
-
-ft("php"):fmt "lsp"
+ft("php, blade"):fmt("lsp"):append(function()
+  return {
+    cmd = "phpcbf",
+    args = {
+      "--standard=PSR12",
+    },
+    fname = true,
+  }
+end)
 
 return ft
