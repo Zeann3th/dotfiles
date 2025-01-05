@@ -8,7 +8,7 @@ ft("go"):fmt("lsp"):append "gofumpt"
 
 ft("typescript,javascript,typescriptreact,javascriptreact"):fmt("lsp"):append "prettier"
 
-ft("json"):fmt "lsp"
+ft("java"):fmt "lsp"
 
 ft("php, blade"):fmt("lsp"):append(function()
   return {

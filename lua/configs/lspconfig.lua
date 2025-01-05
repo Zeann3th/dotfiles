@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
-local servers = { "html", "gopls", "ts_ls", "emmet_language_server" }
+local servers = { "html" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local capabilities = nvlsp.capabilities
@@ -69,6 +69,7 @@ lspconfig.emmet_language_server.setup {
     "javascript",
     "javascriptreact",
     "typescriptreact",
+    "php",
   },
 }
 
@@ -76,7 +77,7 @@ lspconfig.emmet_language_server.setup {
 lspconfig.tailwindcss.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-  filetypes = { "templ", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "blade", "php" },
 }
 
 -- PHP
