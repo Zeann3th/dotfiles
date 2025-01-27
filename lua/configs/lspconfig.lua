@@ -1,10 +1,5 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
-
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
-
-local servers = { "html" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local capabilities = nvlsp.capabilities
@@ -13,83 +8,102 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = capabilities,
-  }
-end
+-- Languages
+------------------------------------------------------------------------------------------
 
--- =Go
-lspconfig.gopls.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
+return {
+
+  -- Automatic Lspconfig
+  function(server_name)
+    lspconfig[server_name].setup {}
+  end,
+
+  -- Lua
+  ["lua_ls"] = function()
+    require("nvchad.configs.lspconfig").defaults()
+  end,
+
+  -- =Go
+  ["gopls"] = function()
+    lspconfig.gopls.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      cmd = { "gopls" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
       },
-    },
-  },
-}
+    }
+  end,
 
--- JS
-lspconfig.ts_ls.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  init_options = {
-    preferences = {
-      completeUnimported = true,
-      disableSuggestions = true,
-    },
-  },
-}
-
--- C, C++
-lspconfig.clangd.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  cmd = { "clangd", "--enable-config", "--query-driver=C:/msys64/ucrt64/bin/g++.exe" },
-  filetypes = { "c", "cpp", "objc", "objcpp" },
-}
-
--- Emmet
-lspconfig.emmet_language_server.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  filetypes = {
-    "css",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "typescriptreact",
-    "php",
-  },
-}
-
--- tailwindcss
-lspconfig.tailwindcss.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "blade", "php" },
-}
-
--- PHP
-lspconfig.intelephense.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  filetypes = { "php" },
-  settings = {
-    intelephense = {
-      format = {
-        enable = true,
+  -- JS
+  ["ts_ls"] = function()
+    lspconfig.ts_ls.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      init_options = {
+        preferences = {
+          completeUnimported = true,
+          disableSuggestions = true,
+        },
       },
-    },
-  },
+    }
+  end,
+
+  -- C, C++
+  ["clangd"] = function()
+    lspconfig.clangd.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      cmd = { "clangd", "--enable-config", "--query-driver=C:/msys64/ucrt64/bin/g++.exe" },
+      filetypes = { "c", "cpp", "objc", "objcpp" },
+    }
+  end,
+
+  -- Emmet
+  ["emmet_language_server"] = function()
+    lspconfig.emmet_language_server.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      filetypes = {
+        "css",
+        "html",
+        "javascriptreact",
+        "typescriptreact",
+        "php",
+      },
+    }
+  end,
+
+  -- tailwindcss
+  ["tailwindcss"] = function()
+    lspconfig.tailwindcss.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      filetypes = { "javascriptreact", "typescriptreact", "php" },
+    }
+  end,
+
+  -- PHP
+  ["intelephense"] = function()
+    lspconfig.intelephense.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      filetypes = { "php" },
+      settings = {
+        intelephense = {
+          format = {
+            enable = true,
+          },
+        },
+      },
+    }
+  end,
 }

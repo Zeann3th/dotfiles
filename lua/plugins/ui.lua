@@ -18,4 +18,10 @@ return {
       }
     end,
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      view = { side = "right" },
+    },
+  },
 }

@@ -7,12 +7,12 @@ M.base46 = {
   --    "decay",
   --    "oxocarbon",
   --    "tokyonight",
-  --    "decay"
+  --    "material-deep-ocean"
   -- }
 
   hl_override = {
     Comment = { italic = true },
-    ["@comment"] = { italic = true },
+    ["@comment"] = { italic = true, fg = "cyan" },
   },
   transparency = true,
 }
