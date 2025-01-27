@@ -2,18 +2,19 @@
 local M = {}
 
 M.base46 = {
-  theme = "decay",
+  theme = "material-deep-ocean",
   -- best_ones = {
   --    "decay",
   --    "oxocarbon",
   --    "tokyonight",
+  --    "decay"
   -- }
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  transparency = false,
+  transparency = true,
 }
 
 M.ui = {
