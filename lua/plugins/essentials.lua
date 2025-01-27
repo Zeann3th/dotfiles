@@ -42,7 +42,6 @@ return {
         "c",
         "python",
         "php",
-        "blade",
       },
       highlight = {
         enable = true,
