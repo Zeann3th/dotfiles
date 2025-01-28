@@ -12,7 +12,7 @@ local config = {
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
-    -- "javaagent:" .. localappdata .. "/nvim-data/mason/packages/jdtls/lombok.jar",
+    "-javaagent:" .. localappdata .. "/nvim-data/mason/packages/jdtls/lombok.jar",
     "-Xmx1g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
