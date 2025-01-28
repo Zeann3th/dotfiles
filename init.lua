@@ -23,6 +23,7 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
+  { import = "plugins.languages" },
 }, lazy_config)
 
 -- load theme
@@ -35,3 +36,29 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.docx", "*.png", "*.jpg", "*.pdf", "*.xlsx" },
+  callback = function()
+    local filepath = vim.fn.expand "%:p"
+    local opener
+
+    if vim.fn.has "mac" == 1 then
+      opener = "open"
+    elseif vim.fn.has "unix" == 1 then
+      opener = "xdg-open"
+    elseif vim.fn.has "win32" == 1 then
+      opener = 'start ""'
+    else
+      print "Unsupported OS"
+      return
+    end
+
+    vim.print("Opening: '" .. filepath .. "'")
+
+    -- Execute the command
+    vim.fn.jobstart(opener .. " " .. vim.fn.shellescape(filepath), { detach = true })
+
+    vim.cmd "bdelete!"
+  end,
+})
