@@ -2,6 +2,10 @@ local localappdata = os.getenv "LOCALAPPDATA"
 local project_full_path = vim.fn.fnamemodify(vim.fn.getcwd(), ":p")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 
+local bundles = {
+  vim.fn.glob "D:/Apps/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar",
+}
+
 local config = {
   cmd = {
 
@@ -40,8 +44,14 @@ local config = {
   },
 
   init_options = {
-    bundles = {},
+    bundles = bundles,
   },
 }
+
+-- Debugging
+config["on_attach"] = function(client, bufnr)
+  require("jdtls").setup_dap { hotcodereplace = "auto" }
+  require("jdtls.dap").setup_dap_main_class_configs()
+end
 
 require("jdtls").start_or_attach(config)

@@ -6,6 +6,7 @@ return {
     --   {
     --     "rcarriga/nvim-notify",
     --     lazy = false,
+    --     top_down = false,
     --   },
     -- },
     config = function()

@@ -14,6 +14,7 @@ return {
         "c",
         "python",
         "php",
+        "java",
       },
       highlight = {
         enable = true,

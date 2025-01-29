@@ -3,7 +3,19 @@ return {
     "williamboman/mason.nvim",
     lazy = false,
     config = function()
-      require("mason").setup()
+      require("mason").setup {
+        ensure_installed = {
+          "clangd",
+          "jdtls",
+          "gopls",
+          "html-lsp",
+          "emmet-language-server",
+          "lua-language-server",
+          "stylua",
+          "tailwindcss-language-server",
+          "typescript-language-server",
+        },
+      }
     end,
   },
   {

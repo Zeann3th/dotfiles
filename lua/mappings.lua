@@ -56,10 +56,39 @@ map("i", "<C-Down>", function()
 end, { desc = "Snippet Move caret down", silent = true })
 
 -- Debugging
-map("n", "<leader>du", function()
-  require("dapui").toggle()
-end, { desc = "DAP Open debug tray" })
-
-map("n", "<leader>db", function()
+map("n", "<F1>", function()
   require("dap").toggle_breakpoint()
 end, { desc = "DAP Toggle breakpoint" })
+
+map("n", "<F2>", function()
+  require("dap").continue()
+end, { desc = "DAP Continue" })
+
+map("n", "<F3>", function()
+  require("dap").close()
+end, { desc = "DAP Close" })
+
+map("n", "<F4>", function()
+  require("dap").restart()
+end, { desc = "DAP Restart" })
+
+map("n", "<F5>", function()
+  require("dap").disconnect()
+  require("dapui").toggle()
+end, { desc = "DAP Disconnect" })
+
+map("n", "<leader><F1>", function()
+  require("dap").step_into()
+end, { desc = "DAP Step into" })
+
+map("n", "<leader><F2>", function()
+  require("dap").step_over()
+end, { desc = "DAP Step over" })
+
+map("n", "<leader><F3>", function()
+  require("dap").step_out()
+end, { desc = "DAP Step out" })
+
+map("n", "<leader><F4>", function()
+  require("dap").step_back()
+end, { desc = "DAP Step back" })
