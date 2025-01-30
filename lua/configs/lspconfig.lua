@@ -15,12 +15,15 @@ return {
 
   -- Automatic Lspconfig
   function(server_name)
-    if server_name ~= "jdtls" then
-      lspconfig[server_name].setup {
-        on_attach = nvlsp.on_attach,
-        capabilities = nvlsp.capabilities,
-      }
-    end
+    lspconfig[server_name].setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+    }
+  end,
+
+  -- Java
+  ["jdtls"] = function()
+    -- Do nothing because jdtls is configured by nvim-jdtls
   end,
 
   -- Lua
