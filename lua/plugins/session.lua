@@ -6,7 +6,11 @@ return {
   ---@module "auto-session"
   ---@type AutoSession.Config
   opts = {
-    suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+    suppressed_dirs = {
+      vim.fn.expand "~",
+      vim.fn.expand "~/Downloads",
+      os.getenv "LOCALAPPDATA" .. "/nvim",
+    },
     -- log_level = 'debug',
   },
 }

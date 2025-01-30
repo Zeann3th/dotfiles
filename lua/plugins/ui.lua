@@ -2,13 +2,6 @@ return {
   {
     "folke/noice.nvim",
     lazy = false,
-    -- dependencies = {
-    --   {
-    --     "rcarriga/nvim-notify",
-    --     lazy = false,
-    --     top_down = false,
-    --   },
-    -- },
     config = function()
       require("noice").setup {
         lsp = {
@@ -31,5 +24,14 @@ return {
     config = function()
       require("highlight-undo").setup {}
     end,
+  },
+  {
+    "nvzone/showkeys",
+    cmd = "ShowkeysToggle",
+    opts = {
+      timeout = 1,
+      maxkeys = 3,
+      opts = { position = "top-center" },
+    },
   },
 }

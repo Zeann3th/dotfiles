@@ -5,6 +5,9 @@ return {
       "nvim-neotest/nvim-nio",
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
     },
     config = function()
       local dap = require "dap"
@@ -13,8 +16,6 @@ return {
 
       dapui.setup()
       dap_virtual_text.setup()
-
-      require "configs.dapconfig"
 
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
@@ -29,5 +30,16 @@ return {
         dapui.close()
       end
     end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "williamboman/mason.nvim",
+    },
+    opts = {
+      handlers = {},
+    },
   },
 }
