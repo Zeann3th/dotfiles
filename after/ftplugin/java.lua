@@ -1,6 +1,20 @@
+local cwd = vim.fn.getcwd()
+
+-- Avoid backend and frontend dirs if project is a monorepo
+local project_name
+local tail, parent = vim.fn.fnamemodify(cwd, ":t"), vim.fn.fnamemodify(cwd, ":h:t")
+if tail == "backend" or tail == "frontend" or tail == "be" or tail == "fe" then
+  project_name = parent .. "/" .. tail
+else
+  project_name = tail
+end
+
+-- Temp files / Data files
+local workspace_dir = os.getenv "TEMP" .. "/nvim-java/" .. project_name
+
 local localappdata = os.getenv "LOCALAPPDATA"
-local project_full_path = vim.fn.fnamemodify(vim.fn.getcwd(), ":p")
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+print("Project name: " .. project_name)
+print("Workspace dir: " .. workspace_dir)
 
 local config = {
   cmd = {
@@ -29,7 +43,7 @@ local config = {
     localappdata .. "/nvim-data/mason/packages/jdtls/config_win",
     -- 💀
     "-data",
-    project_full_path .. "../temp/" .. project_name,
+    workspace_dir,
   },
 
   -- 💀
