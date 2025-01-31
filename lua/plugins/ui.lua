@@ -31,7 +31,7 @@ return {
     opts = {
       timeout = 1,
       maxkeys = 3,
-      opts = { position = "top-center" },
+      position = "bottom-left",
     },
   },
 }

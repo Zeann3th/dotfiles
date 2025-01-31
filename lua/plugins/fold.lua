@@ -5,7 +5,11 @@ return {
     filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
   },
   config = function()
-    require("ufo").setup()
+    require("ufo").setup {
+      close_fold_kinds_for_ft = {
+        default = { "imports", "comment" },
+      },
+    }
   end,
   lazy = false,
 }

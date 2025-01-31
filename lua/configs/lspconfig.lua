@@ -65,6 +65,15 @@ return {
     }
   end,
 
+  -- Vue
+  ["volar"] = function()
+    lspconfig.volar.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      filetypes = { "vue" },
+    }
+  end,
+
   -- C, C++
   ["clangd"] = function()
     lspconfig.clangd.setup {
@@ -86,6 +95,7 @@ return {
         "javascriptreact",
         "typescriptreact",
         "php",
+        "vue",
       },
     }
   end,
@@ -95,7 +105,7 @@ return {
     lspconfig.tailwindcss.setup {
       on_attach = nvlsp.on_attach,
       capabilities = nvlsp.capabilities,
-      filetypes = { "javascriptreact", "typescriptreact", "php" },
+      filetypes = { "javascriptreact", "typescriptreact", "php", "vue" },
     }
   end,
 
