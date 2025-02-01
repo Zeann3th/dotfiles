@@ -57,10 +57,25 @@ return {
       on_attach = nvlsp.on_attach,
       capabilities = nvlsp.capabilities,
       init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = os.getenv "LOCALAPPDATA"
+              .. "/nvim-data/mason/packages/vue-language-server/node_modules/@vue/language-server",
+            languages = { "vue", "typescript", "javascript" },
+          },
+        },
         preferences = {
           completeUnimported = true,
           disableSuggestions = true,
         },
+      },
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
       },
     }
   end,
