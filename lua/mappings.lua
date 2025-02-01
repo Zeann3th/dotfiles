@@ -6,6 +6,14 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+-- Copilot
+map("i", "<C-\\>", 'copilot#Accept("<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+  desc = "Copilot complete",
+})
+vim.g.copilot_no_tab_map = true
+
 -- Harpoon
 map("n", "<leader>ha", function()
   require("harpoon"):list():add()
