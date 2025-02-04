@@ -3,7 +3,15 @@ local cwd = vim.fn.getcwd()
 -- Avoid backend and frontend dirs if project is a monorepo
 local project_name
 local tail, parent = vim.fn.fnamemodify(cwd, ":t"), vim.fn.fnamemodify(cwd, ":h:t")
-if tail == "backend" or tail == "frontend" or tail == "be" or tail == "fe" then
+
+local exclude_dirs = { "backend", "frontend", "be", "fe" }
+
+local valid_tails = {}
+for _, v in ipairs(exclude_dirs) do
+  valid_tails[v] = true
+end
+
+if valid_tails[tail] then
   project_name = parent .. "/" .. tail
 else
   project_name = tail
