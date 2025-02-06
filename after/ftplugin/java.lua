@@ -18,9 +18,10 @@ else
 end
 
 -- Temp files / Data files
-local workspace_dir = os.getenv "TEMP" .. "/nvim-java/" .. project_name
+local workspace_dir = os.getenv "TMP" .. "/nvim-java/" .. project_name
 
-local localappdata = os.getenv "LOCALAPPDATA"
+local localappdata = vim.fn.has "win32" == 1 and os.getenv "LOCALAPPDATA"
+  or (os.getenv "XDG_DATA_HOME" or (os.getenv "HOME" .. "/.local/share"))
 print("Project name: " .. project_name)
 print("Workspace dir: " .. workspace_dir)
 
@@ -65,6 +66,8 @@ local config = {
     bundles = {
       -- 💀 Must install java-debug
       vim.fn.glob "D:/Apps/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar",
+      -- 💀 spring-boot-tools
+      os.getenv "HOME" .. "/.vscode/extensions/vmware.vscode-spring-boot-1.60.0/jars/*.jars",
     },
   },
 }

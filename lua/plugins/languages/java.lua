@@ -1,7 +1,18 @@
 return {
-  "mfussenegger/nvim-jdtls",
-  denpendencies = {
-    "mfussenegger/nvim-dap",
+  {
+    "mfussenegger/nvim-jdtls",
+    denpendencies = {
+      "mfussenegger/nvim-dap",
+    },
+    ft = { "java" },
   },
-  ft = { "java" },
+  {
+    "JavaHello/spring-boot.nvim",
+    ft = { "java", "yaml", "jproperties" },
+    dependencies = {
+      "mfussenegger/nvim-jdtls",
+    },
+    --@type bootls.Config
+    opts = {},
+  },
 }

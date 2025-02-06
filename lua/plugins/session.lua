@@ -1,7 +1,9 @@
+local localappdata = vim.fn.has "win32" == 1 and os.getenv "LOCALAPPDATA"
+
 return {
   "rmagatti/auto-session",
   lazy = false,
-  enabled = false,
+  -- enabled = false,
   ---enables autocomplete for opts
   ---@module "auto-session"
   ---@type AutoSession.Config
@@ -9,7 +11,7 @@ return {
     suppressed_dirs = {
       vim.fn.expand "~",
       vim.fn.expand "~/Downloads",
-      os.getenv "LOCALAPPDATA" .. "/nvim",
+      localappdata .. "/nvim",
     },
     -- log_level = 'debug',
   },
