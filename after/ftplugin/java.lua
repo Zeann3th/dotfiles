@@ -65,9 +65,7 @@ local config = {
   init_options = {
     bundles = {
       -- 💀 Must install java-debug
-      vim.fn.glob "D:/Apps/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar",
-      -- 💀 spring-boot-tools
-      os.getenv "HOME" .. "/.vscode/extensions/vmware.vscode-spring-boot-1.60.0/jars/*.jars",
+      -- vim.fn.glob "D:/Apps/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar",
     },
   },
 }
