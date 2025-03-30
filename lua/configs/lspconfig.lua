@@ -77,6 +77,18 @@ return {
         "typescriptreact",
         "vue",
       },
+      settings = {
+        javascript = {
+          format = {
+            semicolons = "insert",
+          },
+        },
+        typescript = {
+          format = {
+            semicolons = "insert",
+          },
+        },
+      },
     }
   end,
 
