@@ -45,7 +45,7 @@ local config = {
 
     -- 💀
     "-jar",
-    localappdata .. "/nvim-data/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar",
+    localappdata .. "/nvim-data/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250331-1702.jar",
 
     -- 💀
     "-configuration",
