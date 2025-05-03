@@ -26,10 +26,26 @@ config.window_padding = {
 
 -- tabs
 config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = false
+-- config.use_fancy_tab_bar = true
+config.tab_bar_at_bottom = true
 
 -- keymaps
 config.keys = {
+	{
+		key = "n",
+		mods = "CTRL",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key = "{",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	{
+		key = "}",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
 	{
 		key = "w",
 		mods = "CTRL",
