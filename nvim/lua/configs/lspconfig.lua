@@ -21,6 +21,15 @@ return {
     }
   end,
 
+  -- Rust
+  ["rust_analyzer"] = function()
+    lspconfig.rust_analyzer.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      filetypes = { "rs", "rust" },
+    }
+  end,
+
   -- Java
   ["jdtls"] = function()
     -- Do nothing because jdtls is configured by nvim-jdtls
@@ -133,22 +142,6 @@ return {
       on_attach = nvlsp.on_attach,
       capabilities = nvlsp.capabilities,
       filetypes = { "javascriptreact", "typescriptreact", "php", "vue" },
-    }
-  end,
-
-  -- PHP
-  ["intelephense"] = function()
-    lspconfig.intelephense.setup {
-      on_attach = nvlsp.on_attach,
-      capabilities = nvlsp.capabilities,
-      filetypes = { "php" },
-      settings = {
-        intelephense = {
-          format = {
-            enable = true,
-          },
-        },
-      },
     }
   end,
 }

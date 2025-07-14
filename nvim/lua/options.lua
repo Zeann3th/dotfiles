@@ -6,9 +6,6 @@ require "nvchad.options"
 -- Relative line number
 vim.wo.relativenumber = true
 
--- Breakpoint icon
-vim.fn.sign_define("DapBreakpoint", { text = "📌", texthl = "", linehl = "", numhl = "" })
-
 -- Folds
 -- vim.o.foldmethod = "expr"
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
