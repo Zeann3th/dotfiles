@@ -2,6 +2,9 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 local nvlsp = require "nvchad.configs.lspconfig"
 
+-- Define the Mason packages path dynamically for Linux
+local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
+
 local capabilities = nvlsp.capabilities
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
@@ -40,7 +43,7 @@ return {
     require("nvchad.configs.lspconfig").defaults()
   end,
 
-  -- =Go
+  -- Go
   ["gopls"] = function()
     lspconfig.gopls.setup {
       on_attach = nvlsp.on_attach,
@@ -60,7 +63,7 @@ return {
     }
   end,
 
-  -- JS
+  -- JS / TS
   ["ts_ls"] = function()
     lspconfig.ts_ls.setup {
       on_attach = nvlsp.on_attach,
@@ -69,8 +72,8 @@ return {
         plugins = {
           {
             name = "@vue/typescript-plugin",
-            location = os.getenv "LOCALAPPDATA"
-              .. "/nvim-data/mason/packages/vue-language-server/node_modules/@vue/language-server",
+            -- 💀 Fixed path for Linux:
+            location = mason_packages .. "/vue-language-server/node_modules/@vue/language-server",
             languages = { "vue", "typescript", "javascript" },
           },
         },
@@ -115,7 +118,7 @@ return {
     lspconfig.clangd.setup {
       on_attach = nvlsp.on_attach,
       capabilities = nvlsp.capabilities,
-      cmd = { "clangd", "--enable-config", "--query-driver=C:/msys64/ucrt64/bin/g++.exe" },
+      cmd = { "clangd", "--enable-config" },
       filetypes = { "c", "cpp", "objc", "objcpp" },
     }
   end,

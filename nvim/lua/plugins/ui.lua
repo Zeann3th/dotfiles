@@ -16,7 +16,7 @@ return {
     "nvim-tree/nvim-tree.lua",
     opts = {
       view = {
-        side = "right",
+        side = "left",
         width = 40,
       },
       renderer = {

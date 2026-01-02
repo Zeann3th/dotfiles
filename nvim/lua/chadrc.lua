@@ -2,7 +2,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "material-deep-ocean",
+  theme = "tokyonight",
   -- best_ones = {
   --    "decay",
   --    "oxocarbon",
@@ -15,6 +15,34 @@ M.base46 = {
     ["@comment"] = { italic = true, fg = "cyan" },
   },
   transparency = true,
+}
+
+M.nvdash = {
+
+  load_on_startup = true,
+
+  header = {
+
+    "                                  ",
+
+    "██╗  ██╗██╗   ██╗███████╗████████╗",
+
+    "██║  ██║██║   ██║██╔════╝╚══██╔══╝",
+
+    "███████║██║   ██║███████╗   ██║   ",
+
+    "██╔══██║██║   ██║╚════██║   ██║   ",
+
+    "██║  ██║╚██████╔╝███████║   ██║   ",
+
+    "╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   ",
+
+    "                                  ",
+
+    "       Powered By  eovim        ",
+
+    "                                  ",
+  },
 }
 
 M.ui = {

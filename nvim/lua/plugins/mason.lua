@@ -7,7 +7,7 @@ return {
         ensure_installed = {
           "clangd",
           "jdtls",
-          "gopls",
+          -- "gopls",
           "html-lsp",
           "emmet-language-server",
           "lua-language-server",

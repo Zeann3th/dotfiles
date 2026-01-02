@@ -49,16 +49,8 @@ map("n", "<leader>5", function()
 end, { desc = "Harpoon to file 5" })
 
 -- Snippets
-map("n", "<S-Up>", "0v$x2ko<Esc>pjdd", { desc = "Snippet Move line up" })
+map("n", "<S-Down>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
 
-map("n", "<S-Down>", "0v$xjp", { desc = "Snippet Move line down" })
+map("n", "<S-Up>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true, noremap = true })
-
-map("i", "<C-Up>", function()
-  require("cmp"):select_prev_item()
-end, { desc = "Snippet Move caret up", silent = true })
-
-map("i", "<C-Down>", function()
-  require("cmp"):select_next_item()
-end, { desc = "Snippet Move caret down", silent = true })
